@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6c85bc8-128e-4730-9436-4e50bcfd2cdd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from department]]>
+	</queryString>
+	<field name="DID" class="java.math.BigDecimal"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="LID" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#6699FF" uuid="46650a5c-74f3-4a21-8113-1ed252ca7209"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="168" y="29" width="227" height="36" forecolor="#FFFFFF" uuid="22086518-756e-47a9-a495-ad3faf2af679"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Department Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="10" y="2" width="158" height="31" backcolor="#FFFFCC" uuid="2383ed6e-32a3-425e-91c6-1a37ff3173f8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="169" y="2" width="179" height="31" backcolor="#FFFFCC" uuid="bce2ba3e-850f-4cbe-a36c-1c0fd851214b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="348" y="2" width="183" height="31" backcolor="#FFFFCC" uuid="b37825d4-dffd-4375-8ce4-a7f7ad1197a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="9" y="0" width="159" height="36" uuid="abde9ea1-11cb-40f4-875f-46fa36d0e651"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="0" width="179" height="36" uuid="0f80233e-ddb7-4492-91b7-72da0313be06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="0" width="183" height="36" uuid="0e901347-cb1a-4f23-bb69-7c55de6cbe85"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="241" y="30" width="167" height="20" forecolor="#FF6633" uuid="42027754-06f3-4b82-a517-419d4da25e9b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="168" y="30" width="63" height="20" uuid="bf840771-a0f9-4359-a56b-17851b53d39d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Page No:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

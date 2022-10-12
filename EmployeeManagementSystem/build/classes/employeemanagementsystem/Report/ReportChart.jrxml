@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0f6e1a8-1851-4cf1-bcd6-401c534acd2e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="16431163-0b1e-4578-ad2d-16c1c3cf4a1f"/>
+	<subDataset name="New Dataset 1" uuid="3f28329c-393d-43e5-91de-bb843301606b">
+		<queryString language="SQL">
+			<![CDATA[select * from department]]>
+		</queryString>
+		<field name="DID" class="java.math.BigDecimal"/>
+		<field name="NAME" class="java.lang.String"/>
+		<field name="LID" class="java.math.BigDecimal"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[Select * from Employee]]>
+	</queryString>
+	<field name="EID" class="java.math.BigDecimal"/>
+	<field name="FULLNAME" class="java.lang.String"/>
+	<field name="GENDER" class="java.lang.String"/>
+	<field name="SALARY" class="java.math.BigDecimal"/>
+	<field name="START_WORK" class="java.sql.Timestamp"/>
+	<field name="DID" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#003366" uuid="d05fce10-5a07-4c36-b492-c892329bb5fb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="181" y="25" width="239" height="28" forecolor="#FFFFFF" uuid="ddd9ef64-ecea-4420-a92e-5ed0a29b2c79"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee with Chart]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="244" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="77" y="0" width="415" height="244" uuid="37bf5b50-e53e-4f22-9fd9-8942691e2c3b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{EID}]]></keyExpression>
+					<valueExpression><![CDATA[$F{SALARY}]]></valueExpression>
+					<labelExpression><![CDATA[$F{SALARY}+""]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

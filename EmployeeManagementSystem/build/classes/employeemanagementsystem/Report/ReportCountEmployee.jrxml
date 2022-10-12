@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6281aec-8ebf-4555-b237-9a0dcf2f6860">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[Select did,count(*) from employee 
+group by did]]>
+	</queryString>
+	<field name="DID" class="java.math.BigDecimal"/>
+	<field name="COUNT(*)" class="java.math.BigDecimal"/>
+	<variable name="SumOfEmployee" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[$F{COUNT(*)}]]></variableExpression>
+	</variable>
+	<group name="DID">
+		<groupExpression><![CDATA[$F{DID}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#000033" uuid="a1d6188d-02d5-4ef4-944f-cb5217d0806f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="86" y="23" width="421" height="43" forecolor="#FFFF33" uuid="7e268710-4486-434b-831c-d2b13913b913"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Number of Employees For each Department]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="278" y="0" width="277" height="20" backcolor="#00CCCC" uuid="c090de7b-4d30-48b5-aa98-6ef121d054eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Number of Employees]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="277" height="20" backcolor="#00CCCC" uuid="261c0b51-498f-4018-afe8-13e138cd0cc7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="277" y="0" width="277" height="20" uuid="f8f9dd46-7c6e-4455-8fa3-1198299c9cde"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COUNT(*)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="277" height="20" uuid="b27377dc-87e9-4a74-9434-9f5d08a2b07c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="52" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="136" y="0" width="120" height="32" forecolor="#FF3333" backcolor="#CCCCCC" uuid="e3929c0d-416f-49c5-823a-5a1099005266"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="136" height="32" forecolor="#FFFF00" backcolor="#003333" uuid="4c89a581-282b-409d-a527-b4b28b315b61"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Department:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="305" y="0" width="136" height="32" forecolor="#FFFF00" backcolor="#003333" uuid="0a1c4407-0b09-49f3-b2ee-ca048cb0b285"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Employees:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="441" y="0" width="113" height="32" forecolor="#FF3333" backcolor="#CCCCCC" uuid="68c5d21e-b543-4286-905c-8c09718b642f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SumOfEmployee}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
